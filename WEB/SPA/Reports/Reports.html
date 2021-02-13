@@ -1,0 +1,53 @@
+﻿</p>
+<div class="row">
+
+	<div class="col-md-12">
+		<div class="portlet box purple">
+			<div class="portlet-title sbold">
+				<div class="caption">
+					<label>
+						Programs
+					</label>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<div class="tbl-outer">
+					<table class="responstable table-hover">
+						<tbody>
+							<tr class="t-head" style="font-size: 14px !important">
+								<th class="sbold">#</th>
+								<th class="sbold text-center" data-th="Details"><span>Reference</span></th>
+								<th class="sbold text-center">Distributor</th>
+								<th class="sbold text-center">Outlet Name</th>
+								<th class="sbold text-center">Outlet Type</th>
+								<th class="sbold text-center">Comment Type</th>
+								<th class="sbold text-center">Comments</th>
+								<th class="sbold text-center">Date</th>
+								<th class="sbold text-center">Remarkes</th>
+								<th class="sbold text-center">Images</th>
+
+							</tr>
+
+							<!-- table data-->
+							<tr dir-paginate="item in entityList | filter:q | itemsPerPage: PerPage" current-page="currentPage" total-items="total_count" ng-click="rowClick(item)" ng-class="{ 'rowSelected' : entity.ProgramId === item.ProgramId}">
+								<td class="text-center">{{$index + ((currentPage-1)*PerPage) + 1}}</td>
+								<td class="text-center"> {{item.ProgramCode}} </td>
+								<td class="text-center"> {{item.ProgramTitle}} </td>
+								<td class="text-center"> {{item.ProgramHeadId}} </td>
+								<td class="text-center"> {{item.DurationInMonth}} </td>
+								<td class="text-center"> {{item.MinCreditPerSemester}} </td>
+								<td class="text-center"> {{item.MaxCreditPerSemester}} </td>
+								<td class="text-center"> {{item.TotalCredit}} </td>
+								<td class="text-center"> {{item.IsActive ? 'Active' : 'Inactive' }} </td>
+							</tr>
+
+						</tbody>
+
+					</table>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5E251B06-6584-4B27-B762-136801A22630}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Survey.DAL</RootNamespace>
+    <AssemblyName>Survey.DAL</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBExecutor.cs" />
+    <Compile Include="DBUtility.cs" />
+    <Compile Include="Facade.cs" />
+    <Compile Include="LU_AICDAO.cs" />
+    <Compile Include="LU_ASMDAO.cs" />
+    <Compile Include="LU_ChallanTypeDAO.cs" />
+    <Compile Include="LU_CommentsTypeDAO.cs" />
+    <Compile Include="LU_CommnetsDAO.cs" />
+    <Compile Include="LU_ConfigarationSettingsDAO.cs" />
+    <Compile Include="LU_DeviceInfoDAO.cs" />
+    <Compile Include="LU_DistributorlistDAO.cs" />
+    <Compile Include="LU_EmployeeDAO.cs" />
+    <Compile Include="LU_ModuleDAO.cs" />
+    <Compile Include="LU_OutletTypeDAO.cs" />
+    <Compile Include="LU_SchemeMediaTypeDAO.cs" />
+    <Compile Include="LU_SchemeNameDAO.cs" />
+    <Compile Include="LU_ScreenDetailDAO.cs" />
+    <Compile Include="LU_ScreenFunctionDAO.cs" />
+    <Compile Include="LU_UserDAO.cs" />
+    <Compile Include="LU_UserGroupDAO.cs" />
+    <Compile Include="LU_UserLoginIdsDAO.cs" />
+    <Compile Include="Parameters.cs" />
+    <Compile Include="LU_ScreenDAO.cs" />
+    <Compile Include="TRN_PermissionDAO.cs" />
+    <Compile Include="TRN_PermissionDetailDAO.cs" />
+    <Compile Include="TRN_SchemeAuditChildDAO.cs" />
+    <Compile Include="TRN_SchemeAuditParentDAO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Survey.Entity\Survey.Entity.csproj">
+      <Project>{26e274b7-f079-4cf0-9428-06c1c36827d7}</Project>
+      <Name>Survey.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

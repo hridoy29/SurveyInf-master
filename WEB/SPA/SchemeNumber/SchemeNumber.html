@@ -1,0 +1,118 @@
+﻿<!--<p />
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-bar-chart"></i>
+            <span>MSE</span>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Program</span>
+        </li>
+    </ul>
+</div>
+<p />
+<div class="row">
+    <div class="col-md-4">
+        <div class="portlet box purple">
+            <div class="portlet-title sbold">
+                <div class="caption">Program Entry</div>
+            </div>
+            <div class="portlet-body">
+                <form name="frm" novalidate>
+                    <div class="form-body">
+                        <div class="form-group" ng-class="{ 'has-error' : frm.ProgramName.$touched && frm.ProgramName.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Program Name">
+                            <div class="input-group">
+                                <input type="text" id="txtFocus" class="form-control" placeholder="Program Name" name="ProgramName" ng-model="entity.ProgramName" maxlength="51" ng-maxlength="50" required autofocus>
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user font-red"></i>
+                                </span>
+                            </div>
+                            <span class="help-block" style="display: block;" ng-if="frm.ProgramName.$error.required && frm.ProgramName.$touched">Program Name is required</span>
+                            <span class="help-block" ng-if="frm.ProgramName.$error.maxlength">50 Character Max</span>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : frm.TagLine.$touched && frm.TagLine.$invalid }" data-toggle="tooltip" data-placement="bottom" title="Tag Line">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Tag Line" name="TagLine" ng-model="entity.TagLine" maxlength="51" ng-maxlength="50" required>
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user font-red"></i>
+                                </span>
+                            </div>
+                            <span class="help-block" style="display: block;" ng-if="frm.TagLine.$error.required && frm.TagLine.$touched">Tag Line is required</span>
+                            <span class="help-block" ng-if="frm.TagLine.$error.maxlength">50 Character Max</span>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="col-md-3">
+                                    <label class="sbold" style="margin-top: 10px;">Status:</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="mt-radio-inline">
+                                        <label class="mt-radio">
+                                            <input type="radio" name="optionsRadios" ng-value="true" ng-model="entity.IsActive"> Active
+                                            <span></span>
+                                        </label>
+                                        <label class="mt-radio">
+                                            <input type="radio" name="optionsRadios" ng-value="false" ng-model="entity.IsActive"> Inactive
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions" style="margin-top: -15px;" block-ui="entryBlock">
+                        <button type="submit" class="btn btn-lg btn-success box-shadow--8dp" style="min-width:90px !important; margin-right: 10px; margin-bottom: 5px" ng-disabled="frm.$invalid" ng-click="post('save')">Submit</button>
+                        <button type="button" class="btn btn-lg btn-danger box-shadow--8dp" style="min-width:90px !important; margin-right: 10px; margin-bottom: 5px" ng-show="entity.ProgramId > 0" ng-click="post('delete')">Delete</button>
+                        <button type="button" class="btn btn-lg btn-default box-shadow--8dp" style="min-width:90px !important; margin-bottom: 5px" ng-click="resetForm()">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="portlet box purple">
+            <div class="portlet-title sbold">
+                <div class="caption">Program List</div>
+            </div>
+            <div class="portlet-body">
+                <div class="tbl-outer">
+                    <table class="responstable table-hover" block-ui="lsitBlock">
+                        <tbody>
+                            <tr class="t-head" style="font-size: 14px !important">
+                                <th class="sbold">#</th>
+                                <th class="sbold text-center" data-th="Details"><span>Program Name</span></th>
+                                <th class="sbold text-center">Tag Line</th>
+                                <th class="sbold text-center">Status</th>
+                            </tr>
+                            <tr dir-paginate="item in entityListPaged | filter:q | itemsPerPage: PerPage" current-page="currentPage" total-items="total_count" ng-click="rowClick(item)" ng-class="{ 'rowSelected' : entity.ProgramId === item.ProgramId}">
+                                <td class="text-center">{{$index + ((currentPage-1)*PerPage) + 1}}</td>
+                                <td class="text-center"> {{item.ProgramName}} </td>
+                                <td class="text-center"> {{item.TagLine}} </td>
+                                <td class="text-center"> {{item.IsActive ? 'Active' : 'Inactive' }} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row pagination-control" ng-show="total_count>PerPage">
+                        <span style="display: inline-block; vertical-align: middle; margin-top: -7px; font-weight: bold;">
+                            <dir-pagination-controls max-size="8"
+                                                     direction-links="true"
+                                                     boundary-links="true"
+                                                     on-page-change="GetPaged(newPageNumber)" style="text-align:center; margin-top:0px !important">
+                            </dir-pagination-controls>
+                        </span>
+                    </div>
+                    <div class="row pagination-footer">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <input class="input-pagesize" type="number" min="1" max="100" ng-model="PerPage"> <span>Records Per Page</span>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <span class="pull-right">Showing {{((currentPage-1)*PerPage)+1}} to {{((currentPage-1)*PerPage)+entityListPaged.length}} of {{total_count}} Records</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <pre>{{entity | json}}</pre>
+</div>-->

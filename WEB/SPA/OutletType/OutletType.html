@@ -1,0 +1,91 @@
+﻿</p>
+<div class="row">
+	<div class="col-md-4">
+		<div class="portlet box purple">
+			<div class="portlet-title sbold">
+				<div class="caption">
+					<label>
+						Mark Type 
+					</label>
+				</div>
+
+
+			</div>
+			<div class="portlet-body">
+				<form name="frm" novalidate>
+					<div class="row">
+						<div class="from-body">
+							<div class="form-group" style="padding: 5px 15px !important" ng-class="{'has-error':frm.MarkTypeName.$touched && frm.MarkTypeName.$invalid}" data-toggle="tooltip" data-placement="bottom" title="Mark Type Name">
+								<input type="text" id="txtFocus" class="form-control" placeholder="Mark Type Name" name="MarkTypeName" ng-model="entity.MarkTypeName" maxlength="51" ng-maxlength="50" required autofocus />
+								<span class="help-block" style="display: block;" ng-if="frm.MarkTypeName.$error.required && frm.MarkTypeName.$touched">Mark Type Name is required!</span>
+								<span class="help-block" ng-if="frm.MarkTypeName.$error.maxlength">50 Character Max</span>
+							</div>
+							<div class="form-group">
+								<div class="input-group">
+									<div class="col-md-3">
+										<label class="sbold" style="margin-top: 10px;">Status:</label>
+									</div>
+									<div class="col-md-9">
+										<div class="mt-radio-inline">
+											<label class="mt-radio">
+												<input type="radio" name="optionsRadios" ng-value="true" ng-model="entity.IsActive"> Active
+												<span></span>
+											</label>
+											<label class="mt-radio">
+												<input type="radio" name="optionsRadios" ng-value="false" ng-model="entity.IsActive"> Inactive
+												<span></span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-actions" style="padding: 5px 15px !important" block-ui="entryBlock">
+								<button type="submit" class="btn btn-lg btn-success box-shadow--8dp" style="min-width:90px !important; margin-right: 10px; margin-bottom: 5px" ng-disabled="frm.$invalid" ng-click="post('save')">Submit</button>
+								<button type="button" class="btn btn-lg btn-danger box-shadow--8dp" style="min-width:90px !important; margin-right: 10px; margin-bottom: 5px" ng-show="entity.MarkTypeId > 0" ng-click="post('delete')">Delete</button>
+								<button type="button" class="btn btn-lg btn-default box-shadow--8dp" style="min-width:90px !important; margin-bottom: 5px" ng-click="resetForm()">Reset</button>
+							</div>
+
+						</div>
+
+					</div>
+				</form>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="col-md-8">
+		<div class="portlet box purple">
+			<div class="portlet-title sbold">
+				<div class="caption">
+					<label>
+						Mark Types
+					</label>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<div class="tbl-outer">
+					<table class="responstable table-hover">
+						<tbody>
+							<tr class="t-head" style="font-size: 14px !important">
+								<th class="sbold">#</th>
+								<th class="sbold text-center" data-th="Details"><span>Mark Type</span></th>
+								<th class="sbold text-center" data-th="Details"><span>Status</span></th>
+								
+							</tr>
+							<tr dir-paginate="item in entityListPaged | filter:q | itemsPerPage: PerPage" current-page="currentPage" total-items="total_count" ng-click="rowClick(item)" ng-class="{ 'rowSelected' : entity.MarkTypeId === item.MarkTypeId}">
+								<td class="text-center">{{$index + ((currentPage-1)*PerPage) + 1}}</td>
+								<td class="text-center"> {{item.MarkTypeName}} </td>
+								<td class="text-center"> {{item.IsActive ? 'Active' : 'Inactive' }} </td>
+							</tr>
+						</tbody>
+
+					</table>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

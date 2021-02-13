@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{26E274B7-F079-4CF0-9428-06C1C36827D7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Survey.Entity</RootNamespace>
+    <AssemblyName>Survey.Entity</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LU_AIC.cs" />
+    <Compile Include="LU_ASM.cs" />
+    <Compile Include="LU_ChallanType.cs" />
+    <Compile Include="LU_CommentsType.cs" />
+    <Compile Include="LU_Commnets.cs" />
+    <Compile Include="LU_ConfigarationSettings.cs" />
+    <Compile Include="LU_DeviceInfo.cs" />
+    <Compile Include="LU_Distributorlist.cs" />
+    <Compile Include="LU_Employee.cs" />
+    <Compile Include="LU_Module.cs" />
+    <Compile Include="LU_OutletType.cs" />
+    <Compile Include="LU_SchemeMediaType.cs" />
+    <Compile Include="LU_SchemeName.cs" />
+    <Compile Include="LU_Screen.cs" />
+    <Compile Include="LU_ScreenDetail.cs" />
+    <Compile Include="LU_ScreenFunction.cs" />
+    <Compile Include="LU_User.cs" />
+    <Compile Include="LU_UserGroup.cs" />
+    <Compile Include="LU_UserLoginIds.cs" />
+    <Compile Include="TRN_Permission.cs" />
+    <Compile Include="TRN_PermissionDetail.cs" />
+    <Compile Include="TRN_SchemeAuditChild.cs" />
+    <Compile Include="TRN_SchemeAuditParent.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

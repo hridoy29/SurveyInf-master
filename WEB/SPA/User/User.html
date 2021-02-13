@@ -1,0 +1,122 @@
+﻿</p>
+<div class="row">
+    <div class="col-md-4">
+        <div class="portlet box purple">
+            <div class="portlet-title sbold">
+                <div class="caption">
+                    <label>
+                        User
+                    </label>
+                </div>
+
+
+            </div>
+            <div class="portlet-body">
+                <form name="frm" novalidate>
+                    <div class="row">
+                        <div class="from-body">
+                            <div class="form-group" style="padding: 5px 15px !important" ng-class="{'has-error':frm.UserTypeName.$touched && frm.UserTypeName.$invalid}" data-toggle="tooltip" data-placement="bottom" title="User Name">
+                                <input type="text" class="form-control" id="txtFocus" placeholder="User Name" name="UserTypeName" ng-model="entity.Name" maxlength="51" ng-maxlength="50" required autofocus />
+                                <span class="help-block" style="display: block;" ng-if="frm.UserTypeName.$error.required && frm.UserTypeName.$touched">User  Name is required!</span>
+                                <span class="help-block" ng-if="frm.UserTypeName.$error.maxlength">50 Character Max</span>
+                            </div>
+                            <div class="form-group" style="padding: 5px 15px !important" ng-class="{'has-error':frm.ModuleType.$touched && frm.ModuleType.$invalid}" data-toggle="tooltip" data-placement="bottom" title="Module Type">
+                                <select class="form-control" id="txtFocus" name="EmployeeType" ng-model="cmbModuleType" ng-options=" userGroupType.Name for  userGroupType in userGroupList track by  userGroupType.Id" ng-change="entity.UserGroupId = cmbModuleType.Id" required>
+                                    <option value="" selected>{{Name}}</option>
+                                </select>
+                                <span class="help-block" style="display: block;" ng-if="frm.EmployeeType.$error.required && frm.EmployeeType.$touched"> User Group Type is required!</span>
+                            </div>
+                            <div class="form-group" style="padding: 5px 15px !important" ng-class="{'has-error':frm.Email.$touched && frm.Email.$invalid}" data-toggle="tooltip" data-placement="bottom" title="User ID">
+                                <input type="text" class="form-control" id="txtFocus" placeholder="User ID" name="Email" ng-model="entity.Email" maxlength="51" ng-maxlength="50" required autofocus />
+                                <span class="help-block" style="display: block;" ng-if="frm.Email.$error.required && frm.Email.$touched">Email is required!</span>
+                                <span class="help-block" ng-if="frm.Email.$error.maxlength">50 Character Max</span>
+                            </div>
+                            <div class="form-group" style="padding: 5px 15px !important" ng-class="{'has-error':frm.MobileNo.$touched && frm.MobileNo.$invalid}" data-toggle="tooltip" data-placement="bottom" title="MobileNo">
+                                <input type="text" class="form-control" id="txtFocus" placeholder="MobileNo" name="MobileNo" ng-model="entity.MobileNo" maxlength="51" ng-maxlength="50" required autofocus />
+                                <span class="help-block" style="display: block;" ng-if="frm.MobileNo.$error.required && frm.MobileNo.$touched">Mobile No is required!</span>
+                                <span class="help-block" ng-if="frm.MobileNo.$error.maxlength">50 Character Max</span>
+                            </div>
+                            <div class="form-group" style="padding: 5px 15px !important" ng-class="{'has-error':frm.Password.$touched && frm.Password.$invalid}" data-toggle="tooltip" data-placement="bottom" title="Password">
+                                <input type="password" class="form-control" id="txtFocus" placeholder="Password" name="Password" ng-model="entity.Password" maxlength="51" ng-maxlength="50" autofocus />
+                                <span class="help-block" style="display: block;" ng-if="frm.Password.$error.required && frm.Password.$touched">Password is required!</span>
+                                <span class="help-block" ng-if="frm.Password.$error.maxlength">50 Character Max</span>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="col-md-3">
+                                        <label class="sbold" style="margin-top: 10px;">Status:</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="mt-radio-inline">
+                                            <label class="mt-radio">
+                                                <input type="radio" name="optionsRadios" ng-value="true" ng-model="entity.IsActive"> Active
+                                                <span></span>
+                                            </label>
+                                            <label class="mt-radio">
+                                                <input type="radio" name="optionsRadios" ng-value="false" ng-model="entity.IsActive"> Inactive
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions" style="padding: 5px 15px !important" block-ui="entryBlock">
+                                <button type="submit" class="btn btn-lg btn-success box-shadow--8dp" style="min-width:90px !important; margin-right: 10px; margin-bottom: 5px" ng-disabled="frm.$invalid" ng-click="post('save')">Submit</button>
+                                <button type="button" class="btn btn-lg btn-danger box-shadow--8dp" style="min-width:90px !important; margin-right: 10px; margin-bottom: 5px" ng-show="entity.UserTypeId > 0" ng-click="post('delete')">Delete</button>
+                                <button type="button" class="btn btn-lg btn-default box-shadow--8dp" style="min-width:90px !important; margin-bottom: 5px" ng-click="resetForm()">Reset</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-8">
+        <div class="portlet box purple">
+            <div class="portlet-title sbold">
+                <div class="caption">
+                    <label>
+                        User List
+                    </label>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="tbl-outer">
+                    <table class="responstable table-hover">
+                        <tbody>
+                            <tr class="t-head" style="font-size: 14px !important">
+                                <th class="sbold">#</th>
+                                <th class="sbold text-center" data-th="Details"><span>User</span></th>
+                                <th class="sbold text-center" data-th="Details"><span>Group Type</span></th>
+                                <th class="sbold text-center" data-th="Details"><span>User ID</span></th>
+                                <th class="sbold text-center" data-th="Details"><span>MobileNo</span></th>
+
+                                <th class="sbold text-center" data-th="Details"><span>Status</span></th>
+
+                            </tr>
+                            <tr dir-paginate="item in entityListPaged | filter:q | itemsPerPage: PerPage" current-page="currentPage" total-items="total_count" ng-click="rowClick(item)" ng-class="{ 'rowSelected' : entity.Id === item.Id}">
+                                <td class="text-center">{{$index + ((currentPage-1)*PerPage) + 1}}</td>
+                                <td class="text-center"> {{item.Name}} </td>
+                                <td class="text-center"> {{item.GroupName}} </td>
+                                <td class="text-center"> {{item.Email}} </td>
+                                <td class="text-center"> {{item.MobileNo}} </td>
+
+
+                                <td class="text-center"> {{item.IsActive ? 'Active' : 'Inactive' }} </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
